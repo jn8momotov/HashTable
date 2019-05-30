@@ -29,13 +29,18 @@ public class HashTable {
     // Метод поиска значения по ключу
     public String get(String key) {
         int index = hashFunction(key);
-        return array[index].getSearhedValue(key);
+        if (array[index] != null) {
+            return array[index].getSearhedValue(key);
+        }
+        return null;
     }
 
     // Метод удаления по ключу
     public void remove(String key) {
         int index = hashFunction(key);
-        array[index].removePair(key);
+        if (array[index] != null) {
+            array[index].removePair(key);
+        }
     }
 
     // Метод печати всех пар ключ/значение в таблице
